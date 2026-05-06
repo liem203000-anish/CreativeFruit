@@ -17,9 +17,9 @@ services:
     name: videoautostudio-backend
     runtime: node
     region: singapore
-    repo: https://github.com/thanhliem121004/CreativeFruit
+    repo: https://github.com/liem203000-anish/CreativeFruit
     branch: main
-    rootDir: VideoAutoStudio/backend
+    rootDirectory: VideoAutoStudio/backend
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
