@@ -1,0 +1,36 @@
+# render.yaml - Render Blueprint for VideoAutoStudio
+# Docs: https://render.com/docs/blueprint-spec
+
+databases:
+  - name: videoautostudio-db
+    plan: free
+    region: singapore
+    postgresMajorVersion: "16"
+
+services:
+  - type: web
+    plan: free
+    name: videoautostudio-backend
+    runtime: node
+    region: singapore
+    repo: https://github.com/thanhliem121004/CreativeFruit
+    branch: main
+    rootDir: VideoAutoStudio/backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "4000"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: videoautostudio-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRY
+        value: "7d"
+      - key: FRONTEND_URL
+        value: "https://creative-fruit.vercel.app"
