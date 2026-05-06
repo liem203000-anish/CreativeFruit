@@ -1,0 +1,530 @@
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { projectsAPI, videosAPI, scriptsAPI, voiceoverAPI } from '../services/api';
+import { 
+  Plus, Video, Trash2, Play, Edit, X, 
+  Film, FileText, Mic
+} from 'lucide-react';
+import Timeline from '../components/Timeline';
+import { toast } from 'react-hot-toast';
+
+const ProjectsPage = () => {
+  const { t } = useTranslation();
+  const [projects, setProjects] = useState([]);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [videos, setVideos] = useState([]);
+  const [scripts, setScripts] = useState([]);
+  const [voiceovers, setVoiceovers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [editingProject, setEditingProject] = useState(null);
+  const [viewingProject, setViewingProject] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    videoIds: []
+  });
+  const [editData, setEditData] = useState({
+    scriptId: '',
+    voiceoverId: ''
+  });
+
+  useEffect(() => {
+    loadAllData();
+  }, []);
+
+  const loadAllData = async () => {
+    try {
+      const [projectsRes, videosRes, scriptsRes, voiceoversRes] = await Promise.all([
+        projectsAPI.getAll(),
+        videosAPI.listImported(),
+        scriptsAPI.getAll(),
+        voiceoverAPI.getAll()
+      ]);
+      setProjects(projectsRes.data.data || []);
+      setVideos(videosRes.data.data || []);
+      setScripts(scriptsRes.data.data || []);
+      setVoiceovers(voiceoversRes.data.data || []);
+    } catch (err) {
+      console.error('Failed to load data:', err);
+    }
+  };
+
+  const handleCreateProject = async (e) => {
+    e.preventDefault();
+    if (formData.videoIds.length === 0) {
+      toast.error('Please select at least one video');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await projectsAPI.create({
+        name: formData.name,
+        description: formData.description,
+        videoIds: formData.videoIds
+      });
+      setShowCreateModal(false);
+      setFormData({ name: '', description: '', videoIds: [] });
+      await loadAllData();
+      toast.success('Project created successfully!');
+    } catch (err) {
+      toast.error('Failed to create project');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!confirm(t('common.confirm'))) return;
+    try {
+      await projectsAPI.delete(id);
+      await loadAllData();
+      toast.success('Project deleted');
+    } catch (err) {
+      toast.error('Failed to delete project');
+    }
+  };
+
+  const handleEditProject = (project) => {
+    setEditingProject(project);
+    setEditData({
+      scriptId: project.script_id || '',
+      voiceoverId: project.voiceover_id || ''
+    });
+    setShowEditModal(true);
+  };
+
+  const handleUpdateProject = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      await projectsAPI.update(editingProject.id, {
+        script_id: editData.scriptId || null,
+        voiceover_id: editData.voiceoverId || null
+      });
+      setShowEditModal(false);
+      setEditingProject(null);
+      await loadAllData();
+      toast.success('Project updated successfully!');
+    } catch (err) {
+      toast.error('Failed to update project');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleProcessProject = async (id) => {
+    if (!confirm(t('common.confirm'))) return;
+    try {
+      setLoading(true);
+      await projectsAPI.process(id);
+      toast.success('Video processing started! Check status in a few minutes.');
+      await loadAllData();
+    } catch (err) {
+      toast.error('Failed to process video');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVideoSelect = (videoId) => {
+    if (formData.videoIds.includes(videoId)) {
+      setFormData({
+        ...formData,
+        videoIds: formData.videoIds.filter(id => id !== videoId)
+      });
+    } else {
+      setFormData({
+        ...formData,
+        videoIds: [...formData.videoIds, videoId]
+      });
+    }
+  };
+
+  const handleViewProject = async (project) => {
+    setViewingProject(project);
+    setShowDetailModal(true);
+  };
+
+  const handleTimelineReorder = async (videoOrders) => {
+    if (!viewingProject) return;
+    try {
+      await projectsAPI.reorderVideos(viewingProject.id, videoOrders);
+      toast.success('Video order updated!');
+      // Reload project data
+      const res = await projectsAPI.getById(viewingProject.id);
+      setViewingProject(res.data.data);
+    } catch (err) {
+      toast.error('Failed to reorder videos');
+    }
+  };
+
+  const handleRemoveVideoFromProject = async (videoId) => {
+    if (!confirm('Remove this video from project?')) return;
+    try {
+      await projectsAPI.removeVideo(viewingProject.id, videoId);
+      await loadAllData();
+      // Reload project data
+      const res = await projectsAPI.getById(viewingProject.id);
+      setViewingProject(res.data.data);
+      toast.success('Video removed from project');
+    } catch (err) {
+      toast.error('Failed to remove video');
+    }
+  };
+
+  const getAudioUrl = (voiceoverId) => {
+    const token = localStorage.getItem('token');
+    return `/api/voiceover/${voiceoverId}/download?token=${token}`;
+  };
+
+  const getPreviewUrl = (projectId) => {
+    const token = localStorage.getItem('token');
+    return `/api/projects/${projectId}/preview?token=${token}`;
+  };
+
+  return (
+    <div className="animate-fade-in">
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">{t('sidebar.projects')}</h1>
+          <p className="text-text-secondary">Manage and organize your video projects</p>
+        </div>
+        <button 
+          onClick={() => setShowCreateModal(true)}
+          className="btn btn-primary flex items-center gap-2"
+        >
+          <Plus size={18} />
+          New Project
+        </button>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map(project => (
+          <div key={project.id} className="card hover:border-primary transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex-1">
+                <h3 className="font-semibold text-lg mb-1">{project.name}</h3>
+                {project.description && (
+                  <p className="text-sm text-text-secondary line-clamp-2">{project.description}</p>
+                )}
+              </div>
+              <div className="flex gap-2">
+                <button 
+                  onClick={() => handleViewProject(project)}
+                  className="p-2 hover:bg-bg-dark rounded-lg transition-colors"
+                  title="View Details"
+                >
+                  <Film size={16} className="text-text-secondary" />
+                </button>
+                <button 
+                  onClick={() => handleEditProject(project)}
+                  className="p-2 hover:bg-bg-dark rounded-lg transition-colors"
+                >
+                  <Edit size={16} className="text-text-secondary" />
+                </button>
+                <button 
+                  onClick={() => handleDelete(project.id)}
+                  className="p-2 hover:bg-red-500/20 rounded-lg transition-colors"
+                >
+                  <Trash2 size={16} className="text-text-secondary hover:text-red-500" />
+                </button>
+              </div>
+            </div>
+
+            {/* Project Meta */}
+            <div className="flex flex-wrap gap-3 mb-4">
+              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                project.status === 'completed' ? 'bg-success/20 text-success' : 
+                project.status === 'processing' ? 'bg-warning/20 text-warning' : 
+                'bg-text-secondary/20 text-text-secondary'
+              }`}>
+                {project.status}
+              </span>
+              
+              {project.script_id && (
+                <span className="flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">
+                  <FileText size={12} />
+                  Script
+                </span>
+              )}
+              
+              {project.voiceover_id && (
+                <span className="flex items-center gap-1 px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full text-xs">
+                  <Mic size={12} />
+                  Voice
+                </span>
+              )}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-2">
+              {project.status === 'draft' && project.script_id && project.voiceover_id && (
+                <button 
+                  onClick={() => handleProcessProject(project.id)}
+                  className="flex-1 btn btn-primary text-sm py-2"
+                  disabled={loading}
+                >
+                  <Play size={14} className="inline mr-1" />
+                  Process Video
+                </button>
+              )}
+              {project.output_file_path && (
+                <a 
+                  href={getPreviewUrl(project.id)}
+                  target="_blank"
+                  className="flex-1 btn btn-secondary text-sm py-2 text-center"
+                >
+                  <Play size={14} className="inline mr-1" />
+                  Preview
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {projects.length === 0 && (
+        <div className="card text-center py-16">
+          <Video size={64} className="mx-auto mb-4 text-text-secondary/50" />
+          <h3 className="text-xl font-semibold mb-2">No projects yet</h3>
+          <p className="text-text-secondary mb-6">Create your first video project to get started</p>
+          <button 
+            onClick={() => setShowCreateModal(true)}
+            className="btn btn-primary"
+          >
+            <Plus size={18} className="inline mr-2" />
+            Create First Project
+          </button>
+        </div>
+      )}
+
+      {/* Create Project Modal */}
+      {showCreateModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-1000">
+          <div className="bg-bg-card p-8 rounded-2xl w-90% max-w-600px max-h-80vh overflow-y-auto">
+            <h2 className="text-2xl font-bold mb-6">Create New Project</h2>
+            <form onSubmit={handleCreateProject}>
+              <div className="form-group">
+                <label className="form-label">Project Name</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Description</label>
+                <textarea
+                  className="form-input"
+                  value={formData.description}
+                  onChange={(e) => setFormData({...formData, description: e.target.value})}
+                  rows={3}
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Select Videos ({formData.videoIds.length} selected)</label>
+                <div className="max-h-300px overflow-y-auto border border-[var(--border)] rounded-lg p-2">
+                  {videos.map(video => (
+                    <div 
+                      key={video.id}
+                      onClick={() => handleVideoSelect(video.id)}
+                      className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors ${
+                        formData.videoIds.includes(video.id) 
+                          ? 'bg-primary/20 border border-primary/50' 
+                          : 'hover:bg-bg-dark'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <Film size={20} className="text-primary" />
+                        <div>
+                          <p className="font-medium text-sm">{video.name}</p>
+                          <p className="text-xs text-text-secondary">
+                            {video.duration ? `${Math.floor(video.duration / 60)}:${(video.duration % 60).toString().padStart(2, '0')}` : 'N/A'}
+                          </p>
+                        </div>
+                      </div>
+                      {formData.videoIds.includes(video.id) && (
+                        <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex gap-4 mt-6">
+                <button type="submit" className="btn btn-primary flex-1" disabled={loading}>
+                  {loading ? 'Creating...' : 'Create Project'}
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-secondary flex-1"
+                  onClick={() => setShowCreateModal(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Project Modal */}
+      {showEditModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-1000">
+          <div className="bg-bg-card p-8 rounded-2xl w-90% max-w-500px">
+            <h2 className="text-2xl font-bold mb-6">Edit: {editingProject?.name}</h2>
+            <form onSubmit={handleUpdateProject}>
+              <div className="form-group">
+                <label className="form-label">Select Script</label>
+                <select
+                  className="form-select"
+                  value={editData.scriptId}
+                  onChange={(e) => setEditData({...editData, scriptId: e.target.value})}
+                >
+                  <option value="">No Script</option>
+                  {scripts.map(script => (
+                    <option key={script.id} value={script.id}>{script.title}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Select Voiceover</label>
+                <select
+                  className="form-select"
+                  value={editData.voiceoverId}
+                  onChange={(e) => setEditData({...editData, voiceoverId: e.target.value})}
+                >
+                  <option value="">No Voiceover</option>
+                  {voiceovers.map(voice => (
+                    <option key={voice.id} value={voice.id}>{voice.voice_name || 'Voiceover'}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex gap-4 mt-6">
+                <button type="submit" className="btn btn-primary flex-1" disabled={loading}>
+                  {loading ? 'Updating...' : 'Update Project'}
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-secondary flex-1"
+                  onClick={() => {
+                    setShowEditModal(false);
+                    setEditingProject(null);
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Project Detail Modal with Drag & Drop */}
+      {showDetailModal && viewingProject && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-1000 p-4">
+          <div className="bg-bg-card rounded-2xl w-90% max-w-1000px max-h-90vh overflow-hidden flex flex-col">
+            {/* Header */}
+            <div className="p-6 border-b border-[var(--border)]">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h2 className="text-2xl font-bold mb-1">{viewingProject.name}</h2>
+                  <p className="text-text-secondary text-sm">
+                    {viewingProject.description || 'No description'}
+                  </p>
+                </div>
+                <button 
+                  onClick={() => {
+                    setShowDetailModal(false);
+                    setViewingProject(null);
+                  }}
+                  className="p-2 hover:bg-bg-dark rounded-lg transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              
+              {/* Project Status */}
+              <div className="flex gap-3 mt-4">
+                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  viewingProject.status === 'completed' ? 'bg-success/20 text-success' : 
+                  viewingProject.status === 'processing' ? 'bg-warning/20 text-warning' : 
+                  'bg-text-secondary/20 text-text-secondary'
+                }`}>
+                  {viewingProject.status}
+                </span>
+                {viewingProject.script_id && (
+                  <span className="flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">
+                    <FileText size={12} />
+                    {scripts.find(s => s.id === viewingProject.script_id)?.title || 'Script'}
+                  </span>
+                )}
+                {viewingProject.voiceover_id && (
+                  <span className="flex items-center gap-1 px-3 py-1 bg-purple-500/10 text-purple-500 rounded-full text-xs">
+                    <Mic size={12} />
+                    {voiceovers.find(v => v.id === viewingProject.voiceover_id)?.voice_name || 'Voice'}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            {/* Timeline Section */}
+            <div className="flex-1 overflow-y-auto p-6">
+              <Timeline project={viewingProject} onReorder={handleTimelineReorder} onRemoveVideo={handleRemoveVideoFromProject} />
+            </div>
+
+            {/* Footer Actions */}
+            <div className="p-6 border-t border-[var(--border)] flex gap-4">
+              {viewingProject.status === 'draft' && viewingProject.script_id && viewingProject.voiceover_id && (
+                <button 
+                  onClick={() => {
+                    handleProcessProject(viewingProject.id);
+                    setShowDetailModal(false);
+                  }}
+                  className="btn btn-primary flex-1"
+                  disabled={loading}
+                >
+                  <Play size={16} className="inline mr-2" />
+                  Process Video
+                </button>
+              )}
+              {viewingProject.output_file_path && (
+                <a 
+                  href={getPreviewUrl(viewingProject.id)}
+                  target="_blank"
+                  className="btn btn-secondary flex-1 text-center"
+                >
+                  <Play size={16} className="inline mr-2" />
+                  Preview Video
+                </a>
+              )}
+              <button 
+                onClick={() => {
+                  setShowDetailModal(false);
+                  setViewingProject(null);
+                }}
+                className="btn btn-secondary"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ProjectsPage;

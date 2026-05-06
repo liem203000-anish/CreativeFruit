@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0d0d15",
+                    "surface-tint": "#c0c1ff",
+                    "error-container": "#93000a",
+                    "background": "#13131b",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e4e1ed",
+                    "surface-container-high": "#292932",
+                    "inverse-on-surface": "#303038",
+                    "surface-container": "#1f1f27",
+                    "outline": "#908fa0",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4f2500",
+                    "secondary-fixed": "#d8e3fb",
+                    "surface-bright": "#393841",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed": "#07006c",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "on-background": "#e4e1ed",
+                    "tertiary-container": "#d97721",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-secondary-container": "#aeb9d0",
+                    "surface-dim": "#13131b",
+                    "on-secondary-fixed": "#111c2d",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "secondary": "#bcc7de",
+                    "on-secondary": "#263143",
+                    "primary-container": "#8083ff",
+                    "outline-variant": "#464554",
+                    "on-primary-container": "#0d0096",
+                    "surface-container-highest": "#34343d",
+                    "primary-fixed": "#e1e0ff",
+                    "on-surface": "#e4e1ed",
+                    "tertiary": "#ffb783",
+                    "on-tertiary-fixed": "#301400",
+                    "surface-container-low": "#1b1b23",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "surface": "#13131b",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "secondary-container": "#3e495d",
+                    "surface-variant": "#34343d",
+                    "on-primary": "#1000a9",
+                    "inverse-primary": "#494bd6",
+                    "on-tertiary-container": "#452000",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "primary": "#c0c1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "1rem",
+                    "base": "4px",
+                    "gutter": "1.5rem",
+                    "sm": "0.5rem",
+                    "xs": "0.25rem",
+                    "xl": "2.5rem",
+                    "margin": "2rem",
+                    "lg": "1.5rem"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "button": ["Inter"],
+                    "h1": ["Manrope"],
+                    "body-lg": ["Inter"],
+                    "h3": ["Manrope"],
+                    "body-sm": ["Inter"],
+                    "h2": ["Manrope"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "button": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card:hover {
+            border-color: #8083ff;
+            box-shadow: 0 10px 40px -10px rgba(128, 131, 255, 0.2);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-slate-900/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-6 py-3 shadow-xl shadow-indigo-500/5">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-slate-50 tracking-tighter">VideoAutoStudio</span>
+<nav class="hidden md:flex items-center gap-6 font-manrope text-sm font-medium tracking-tight">
+<a class="text-slate-400 hover:bg-white/5 hover:text-slate-50 transition-all duration-300 px-3 py-1 rounded-md" href="#">Dashboard</a>
+<a class="text-slate-400 hover:bg-white/5 hover:text-slate-50 transition-all duration-300 px-3 py-1 rounded-md" href="#">Projects</a>
+<a class="text-indigo-400 font-semibold border-b-2 border-indigo-500 px-3 py-1" href="#">Templates</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-surface-container-high border-white/5 rounded-full pl-9 pr-4 py-1.5 text-xs focus:ring-1 focus:ring-primary outline-none w-64" placeholder="Search templates..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:bg-white/5 hover:text-slate-50 rounded-full transition-all">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 hover:text-slate-50 rounded-full transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 hover:text-slate-50 rounded-full transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold ml-2">JD</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-slate-950/80 backdrop-blur-md border-r border-white/10 flex-col z-40 pt-20 pb-6 px-4">
+<div class="flex-1 space-y-2 font-manrope text-[13px] font-medium">
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">video_library</span> Projects
+            </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">auto_fix_high</span> AI Script
+            </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">mic</span> Voiceover
+            </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:bg-white/5 hover:text-slate-200 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined">cloud_queue</span> Assets
+            </a>
+<a class="flex items-center gap-3 bg-indigo-600/20 text-indigo-400 border-r-2 border-indigo-500 px-4 py-3 rounded-r-lg" href="#">
+<span class="material-symbols-outlined">layers</span> Templates
+            </a>
+<div class="pt-6">
+<button class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold text-sm shadow-lg shadow-indigo-600/20 hover:scale-105 active:scale-95 transition-all">
+                    New Project
+                </button>
+</div>
+</div>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 text-slate-400 px-4 py-2 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-2 hover:text-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">help</span> Help
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-24 pb-20 px-6 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+<div>
+<h1 class="font-h1 text-h1 text-on-background mb-2">Template Library</h1>
+<p class="text-on-surface-variant font-body-md max-w-2xl">Elevate your production with pre-built cinematic structures. Professional grade motion graphics and AI-ready sequences for high-impact storytelling.</p>
+</div>
+<div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-indigo-600 text-white px-5 py-2 rounded-full font-button text-button whitespace-nowrap">All</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full font-button text-button hover:bg-surface-container-highest transition-all whitespace-nowrap">Social</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full font-button text-button hover:bg-surface-container-highest transition-all whitespace-nowrap">Promo</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full font-button text-button hover:bg-surface-container-highest transition-all whitespace-nowrap">Cinematic</button>
+<button class="bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full font-button text-button hover:bg-surface-container-highest transition-all whitespace-nowrap">Corporate</button>
+</div>
+</div>
+<!-- Bento Grid Gallery -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Large Featured Template -->
+<div class="lg:col-span-2 lg:row-span-2 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-col transition-all duration-300">
+<div class="relative h-2/3">
+<img class="w-full h-full object-cover" data-alt="A professional cinematic video editing workspace showing a high-end timeline on a large monitor. The room is dimly lit with deep indigo and violet ambient lighting reflecting off glass surfaces. The style is sleek and technological, with a focus on high-fidelity motion graphics on the screen. The overall atmosphere is focused, creative, and futuristic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeSvewCLtm7AjEzB6OeHjx_hfvB5uPUSIpWpMtyYWla1GXJVp5HtFLYaHpxOMF8evRK2852pg7SwVlQ7ZCfaNeWYsvae-Y5KYq_UeEg_EaUd1C38vo7e5wIA4BUVXVPbdKXJVg9V_jh8kTlXo7H9r5ddpGj-bWmZ7hAWPn-5jpgNqEOf6uqPgOjBD9DCqNUlKzvK91SI8GikN-WHO2RHuUDGU0ZxLe6T55fteLC3Zk9_jVbWDIsnMZFwY0Sp9JM_HdvrQm8D0uXPQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-indigo-600/90 text-white text-[10px] px-2 py-1 rounded uppercase font-bold tracking-widest">Featured</span>
+<span class="bg-slate-900/60 backdrop-blur text-white text-[10px] px-2 py-1 rounded uppercase font-bold tracking-widest">4K Ultra</span>
+</div>
+</div>
+<div class="p-lg flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-h3 text-h3 mb-2">Urban Cyberpunk Reel</h3>
+<p class="text-on-surface-variant text-body-sm line-clamp-2 mb-4">Fast-paced transitions, glitch effects, and high-contrast color grading designed for high-impact social storytelling.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-400 text-sm">schedule</span>
+<span class="text-xs text-slate-400">0:45 min</span>
+</div>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-2.5 rounded-lg hover:brightness-110 active:scale-95 transition-all">Use Template</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Template Card 2 -->
+<div class="group">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col transition-all duration-300 h-full">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Abstract fluid motion graphics with vibrant blue and purple neon gradients. The aesthetic is extremely modern and clean, resembling high-end corporate presentation styles. Soft light glows permeate the composition, creating a sense of professional depth and digital sophistication. The style is minimalist yet dynamic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYbJKp2gdvn2fiedEI0lso4m4VBpf-bdroHie8Psp3GNImXlb8L3VT0MLNB0WZ7w1NwJS1QQqwi3R6wo8QjR9TBOJdi4gtmh9N_75qnq-4bp97c3WKzEfZq75SWWrJZWxL_HVnSaIMtJJI3btb46C0couFcJ7rp8g2DNLhbWPNjZoDm2z8XXNcJfmmdIfr0VrFUvnZVf2jRo9mpiC2IczLwANNqO9601eAQUt7INEo4Vb2w0_KqYlISoQZvYZx6WJafJysMmsjud0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-900/40 backdrop-blur flex items-center justify-center text-white hover:text-indigo-400 transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<div class="p-md flex flex-col flex-1">
+<h4 class="font-bold text-on-background mb-1">Modern Corporate Pitch</h4>
+<p class="text-xs text-slate-400 mb-4">Clean typography and smooth parallax effects.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-white font-button text-[12px] py-2 rounded-md hover:bg-indigo-600 transition-all">Preview</button>
+<button class="w-10 h-10 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-md hover:bg-indigo-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Template Card 3 -->
+<div class="group">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col transition-all duration-300 h-full">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Close-up of a high-end cinema camera lens with beautiful blue and gold reflections on the glass. The background is a dark studio environment with professional lighting gear subtly visible in the shadows. The mood is high-quality, professional, and cinematic. The color palette is dominated by dark charcoal and electric indigo accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBleQlVwwFKWgN7F823pm0aJ7HktG2bSx4FY-l4rKEuhMf_9GH9uYFEMf2CwRdjUa8kqjz_6HPzzyEE8MyX0mcwnxE3-fPlGuWDVFbJdWW9MPkuuJtE9CBnCs5UuZfYKzzSAunWrKxcDH4bbrjrnlchEbJjJB4rnsEIurR-c1wHm8OBvaIsQUpKysPMfnmTpBHr9xsW2opOHocxoQcGyhXK8Mo0QbNOeX7WbUryaYvxctBykFo-7qG9cjSLNvOm28dAFntsGU2IeRY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<h4 class="font-bold text-on-background mb-1">Cinematic Documentary</h4>
+<p class="text-xs text-slate-400 mb-4">Deep shadows and film-grain textures.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-white font-button text-[12px] py-2 rounded-md hover:bg-indigo-600 transition-all">Preview</button>
+<button class="w-10 h-10 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-md hover:bg-indigo-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Template Card 4 -->
+<div class="group">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col transition-all duration-300 h-full">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A smartphone displaying a vibrant social media feed with energetic motion graphics. The phone is held in a studio setting with bright magenta and cyan rim lighting. The style is punchy, high-energy, and modern, reflecting current social media trends for short-form video content. The overall mood is youthful and dynamic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0mA4gIf1ytUV2oDHiPH8E2mOLDNf3IHXfFdcP6j-dd67DBLfvLEg2wouTGZUtpiux_LU7QPRVUata6NidsEQrZ834sFVtAXvMlOKG0VU6L4eFB2qPdWSX4IXkIKXbFQC4BZ_toi6t5w0yX7XL2jtvL7iuvEAqxZZXjGG6b_4zkXG6If1dbokwMrshJblc1Lb9L9L5MjEDlOer9X_l6upxfzjwiGzaVO9a00bkuGY6hGWctmAjQLwnTHWjF48TC6Fqq-Vu7RbREGc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<h4 class="font-bold text-on-background mb-1">TikTok Viral Transitions</h4>
+<p class="text-xs text-slate-400 mb-4">Beat-synced cuts and zoom-in effects.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-white font-button text-[12px] py-2 rounded-md hover:bg-indigo-600 transition-all">Preview</button>
+<button class="w-10 h-10 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-md hover:bg-indigo-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Template Card 5 -->
+<div class="group">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col transition-all duration-300 h-full">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Lush green mountain landscape at dawn with soft atmospheric fog rolling through the peaks. The lighting is ethereal and cold, with soft indigo tints in the shadows and pale gold on the crests. The visual style is premium nature documentary, clean and breathtakingly detailed. The image evokes a sense of vastness and professional quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8mVaY6LTttyR-xbNDDldZs13esOzNdNQDYF6Ao2iBaXfj6vzDMZIq_a3JtwXf6GWNEW5ti5qPLiQly5jSj-ZIssIoLcgBiZFjrjQpas5DMDselPwkrZkU4kNJ8SoaJd1z5FfctYRX3x6qC9DlQbXD-Rf3X5SoHPEk_bT-qy72AYfSnjxvOVLSbHVkJqVMd5qs3E9JB-mK0Jx409xLTBE9ZHCfREEdsQcTfaOTyNVm8GJ9YNjKc4GpJhd-0yxa_X0Wnxoqz1rrKGI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<h4 class="font-bold text-on-background mb-1">Nature Vlog Series</h4>
+<p class="text-xs text-slate-400 mb-4">Soft transitions and atmospheric luts.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-white font-button text-[12px] py-2 rounded-md hover:bg-indigo-600 transition-all">Preview</button>
+<button class="w-10 h-10 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-md hover:bg-indigo-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Template Card 6 -->
+<div class="group">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col transition-all duration-300 h-full">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Retro 80s vaporwave aesthetic scene with a glowing pink and blue wireframe grid stretching towards a digital sun. The style is nostalgic yet technically refined, with pixel-perfect glowing lines and a subtle CRT scanline effect. The color palette is dominated by electric violet and neon pink, creating a classic gaming-inspired atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg_eTTtW_1sK5AGFWyMuQa-0YQ0IQqxtrYTBBEmCgN2JP85tKTAEEyDb4kyWSg7M2SKJMnAWb59vmyNapQ6_LgGDStnB2RdJHXMRcy0AZerXwXlHgHoSCvOCxcrnUdgG05PJ-Pn_mRk6XToDfeV4SloTsXczmwh5WSz33oZFJeJA8TjJ2L6J8vFqJgH_x6hJqr5T78YmrbZN9EgEqF5QmWxwuCyQOfdjmQcj0-MyCMMH0dUpTpFyPdG42UVoixiJodPB-3rSNr3Vk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<h4 class="font-bold text-on-background mb-1">Gaming Retro Intro</h4>
+<p class="text-xs text-slate-400 mb-4">Vaporwave aesthetic and pixel-art fonts.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-white font-button text-[12px] py-2 rounded-md hover:bg-indigo-600 transition-all">Preview</button>
+<button class="w-10 h-10 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-md hover:bg-indigo-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Template Card 7 -->
+<div class="group">
+<div class="glass-card rounded-xl overflow-hidden flex flex-col transition-all duration-300 h-full">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist office interior with white walls, light wood desks, and large windows. The lighting is bright and airy, with a high-key professional look. The visual style is crisp and corporate, focusing on productivity and clarity. Subdued indigo accents appear in the decor to maintain brand consistency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL6fc5FsQlh9ed8HB5f2uPLEYPH8nbWgDwQ5ch6vuJLAbyWfgy1mtAx3GLn2VXP4--X18OGCDbT_bMYfdMdnB839d4SyBZIeVyH41-aeRIbCthoCBlAJLkpMxMFbU38erx1jW9TRJKm5cFpuw_IS2VrWGyyF8updyhuDq6WXISc_5t8aQjtRlcAQJgscZKcR_Dp6rVMNcLp18cbLhtOKxHD4nCU_SrebxLxq2ZnXYGDpCw7E699pvOUmVWgTgdk0a6s1x0QVeoGiY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<h4 class="font-bold text-on-background mb-1">Minimalist Product Showcase</h4>
+<p class="text-xs text-slate-400 mb-4">Clean focus and elegant whitespace.</p>
+<div class="mt-auto flex gap-2">
+<button class="flex-1 bg-surface-container-highest text-white font-button text-[12px] py-2 rounded-md hover:bg-indigo-600 transition-all">Preview</button>
+<button class="w-10 h-10 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-md hover:bg-indigo-600 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Feature Card -->
+<div class="lg:col-span-2 group">
+<div class="glass-card rounded-xl overflow-hidden h-full flex flex-row items-center p-lg relative border-indigo-500/30">
+<div class="flex-1 z-10">
+<h3 class="font-h3 text-h3 mb-2">Request Custom Template</h3>
+<p class="text-on-surface-variant text-body-sm mb-6 max-w-sm">Can't find what you're looking for? Our elite motion designers can build a bespoke identity for your brand.</p>
+<button class="bg-indigo-600 text-white font-button text-button px-6 py-3 rounded-lg hover:brightness-110 shadow-lg shadow-indigo-600/30 transition-all">Contact Studio</button>
+</div>
+<div class="hidden sm:block absolute right-[-20px] top-0 h-full w-1/3 rotate-12 opacity-20 group-hover:rotate-6 transition-all duration-500">
+<img class="h-full w-full object-cover rounded-xl" data-alt="Macro shot of intricate mechanical clockwork gears with deep metallic blue and copper tones. The lighting highlights the fine textures and precision engineering. The style is sophisticated, complex, and industrial-chic, symbolizing the power and precision of the VideoAutoStudio engine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfP0RtxBdpKNk1AxhSMf-JSmjhZn9fn7wmjj0ruUPs6ZTDE7_f4MYOKTK49JFyjCbQ7n0bYcQUASGCtroqeOwphVzQGjQQarXUnycxLn_apH143CImj0-ay_SuFXV4XA_gnnXBgPt95d6XQbElfVc_yyJDuH1jv2oKtCOu6HFXp5s1TuWP65dDdpUj1-Iv56_JHSQPDDqk2EcwC_-y9hRJWmMsMdJF4IZMt3bxz3kAuvJbZswN0Nbf33CzoUb77nxemr02QF71Nrc"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-16 flex flex-col items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="h-[1px] w-12 bg-white/10"></div>
+<span class="text-xs font-label-caps text-slate-500">Showing 12 of 148 templates</span>
+<div class="h-[1px] w-12 bg-white/10"></div>
+</div>
+<button class="flex items-center gap-2 bg-surface-container text-on-surface px-8 py-3 rounded-full border border-white/5 hover:bg-surface-container-high transition-all">
+                    Load More Templates
+                    <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-xl border-t border-white/5 flex justify-around items-center py-3 z-50">
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">video_library</span>
+<span class="text-[10px]">Projects</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-indigo-400" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">layers</span>
+<span class="text-[10px]">Templates</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Settings</span>
+</a>
+</nav>
+<!-- Floating Action Button (Optional) -->
+<button class="md:hidden fixed bottom-20 right-6 w-14 h-14 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-indigo-600/50 z-50">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</body></html>

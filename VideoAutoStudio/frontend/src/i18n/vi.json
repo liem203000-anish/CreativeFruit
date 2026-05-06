@@ -1,0 +1,54 @@
+{
+  "app": {
+    "name": "VideoAutoStudio",
+    "description": "Nền tảng Tạo Video Tự động"
+  },
+  "sidebar": {
+    "dashboard": "Bảng điều khiển",
+    "driveVideos": "Video Drive",
+    "templates": "Mẫu",
+    "scripts": "Kịch bản",
+    "voiceover": "Lồng tiếng",
+    "projects": "Dự án",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "username": "Tên người dùng",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "dontHaveAccount": "Chưa có tài khoản?",
+    "alreadyHaveAccount": "Đã có tài khoản?",
+    "loginButton": "Đăng nhập",
+    "registerButton": "Đăng ký"
+  },
+  "dashboard": {
+    "welcome": "Chào mừng trở lại, {{name}}!",
+    "stats": {
+      "totalProjects": "Tổng số dự án",
+      "videosImported": "Video đã nhập",
+      "scriptsGenerated": "Kịch bản đã tạo",
+      "voiceoversCreated": "Lồng tiếng đã tạo"
+    },
+    "recentProjects": "Dự án gần đây",
+    "quickActions": "Thao tác nhanh"
+  },
+  "common": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "success": "Thành công!",
+    "confirm": "Bạn có chắc chắn?",
+    "close": "Đóng",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "noData": "Không có dữ liệu"
+  }
+}

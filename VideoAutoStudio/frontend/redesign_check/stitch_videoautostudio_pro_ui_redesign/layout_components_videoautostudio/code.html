@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#8083ff",
+            "on-primary-fixed": "#07006c",
+            "secondary-fixed": "#d8e3fb",
+            "surface-dim": "#13131b",
+            "primary-fixed-dim": "#c0c1ff",
+            "secondary-container": "#3e495d",
+            "inverse-on-surface": "#303038",
+            "surface-bright": "#393841",
+            "secondary": "#bcc7de",
+            "on-error": "#690005",
+            "tertiary-container": "#d97721",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary-container": "#0d0096",
+            "on-tertiary-container": "#452000",
+            "secondary-fixed-dim": "#bcc7de",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface": "#13131b",
+            "inverse-primary": "#494bd6",
+            "on-secondary": "#263143",
+            "surface-tint": "#c0c1ff",
+            "on-tertiary-fixed": "#301400",
+            "error": "#ffb4ab",
+            "surface-container-high": "#292932",
+            "outline-variant": "#464554",
+            "tertiary-fixed": "#ffdcc5",
+            "on-background": "#e4e1ed",
+            "on-secondary-fixed-variant": "#3c475a",
+            "on-tertiary-fixed-variant": "#703700",
+            "surface-variant": "#34343d",
+            "surface-container-lowest": "#0d0d15",
+            "on-error-container": "#ffdad6",
+            "on-surface-variant": "#c7c4d7",
+            "on-secondary-container": "#aeb9d0",
+            "surface-container": "#1f1f27",
+            "primary-fixed": "#e1e0ff",
+            "outline": "#908fa0",
+            "inverse-surface": "#e4e1ed",
+            "primary": "#c0c1ff",
+            "on-surface": "#e4e1ed",
+            "on-tertiary": "#4f2500",
+            "error-container": "#93000a",
+            "tertiary": "#ffb783",
+            "on-primary": "#1000a9",
+            "on-secondary-fixed": "#111c2d",
+            "surface-container-highest": "#34343d",
+            "surface-container-low": "#1b1b23",
+            "background": "#13131b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "xs": "0.25rem",
+            "gutter": "1.5rem",
+            "xl": "2.5rem",
+            "md": "1rem",
+            "sm": "0.5rem",
+            "base": "4px",
+            "lg": "1.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "button": ["Inter"],
+            "h1": ["Manrope"],
+            "h3": ["Manrope"],
+            "body-lg": ["Inter"],
+            "h2": ["Manrope"],
+            "label-caps": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "button": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+            "h1": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "h2": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .glass-border-gradient {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .active-nav-glow {
+      box-shadow: 0 0 15px rgba(128, 131, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 border-r fixed left-0 top-0 bg-slate-950/80 backdrop-blur-2xl border-white/5 shadow-2xl shadow-black/50 flex flex-col h-full py-6 gap-8 z-50 overflow-y-auto">
+<!-- Header/Logo Area -->
+<div class="px-6 mb-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="movie_filter">movie_filter</span>
+</div>
+<div class="flex flex-col">
+<span class="font-h3 text-body-md tracking-tighter text-on-surface font-black">CineFlow AI</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-primary/70 font-bold">Pro Workspace</span>
+</div>
+</div>
+<!-- Navigation Groups -->
+<nav class="flex-1 flex flex-col gap-6">
+<!-- Group: MAIN -->
+<div class="flex flex-col gap-1">
+<span class="px-6 font-manrope text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">Main</span>
+<a class="bg-indigo-500/10 text-indigo-400 border-r-4 border-indigo-500 flex items-center px-6 py-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-button text-button">Dashboard</span>
+</a>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="video_library">video_library</span>
+<span class="font-button text-button flex-1">Projects</span>
+<span class="bg-primary-container/20 text-primary-container text-[10px] px-2 py-0.5 rounded-full font-bold">12</span>
+</a>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="inventory_2">inventory_2</span>
+<span class="font-button text-button">Drive Videos</span>
+</a>
+</div>
+<!-- Group: CONTENT -->
+<div class="flex flex-col gap-1">
+<span class="px-6 font-manrope text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">Content</span>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-button text-button">Templates</span>
+</a>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="description">description</span>
+<span class="font-button text-button">Scripts</span>
+</a>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="record_voice_over">record_voice_over</span>
+<span class="font-button text-button">Voiceover</span>
+</a>
+</div>
+<!-- Group: SYSTEM -->
+<div class="flex flex-col gap-1">
+<span class="px-6 font-manrope text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">System</span>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="font-button text-button">Settings</span>
+</a>
+<a class="text-slate-500 flex items-center px-6 py-3 hover:text-slate-200 hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="help">help</span>
+<span class="font-button text-button">Help</span>
+</a>
+</div>
+</nav>
+<!-- Sidebar Footer -->
+<div class="mt-auto px-4 pt-4 border-t border-white/5 flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2 bg-white/5 rounded-xl">
+<div class="relative">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover border border-primary/30" data-alt="Close up portrait of a professional male video editor in a dimly lit studio setting, with subtle indigo neon lighting reflecting on his face and sharp modern eyewear. The background shows blurred high-tech computer screens with video editing timelines, creating a focused, creative, and premium atmosphere in a dark-themed cinematic workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYipANk_hteKVVL-ly9YK2teSVN-yLLG_FA3tTnCaQdSa-QCpr4trKDYtMj9nlQezHdK-A1ZoYs5rxBiT0auJSaZNvQsMHE4n4dPpJiA6529SDtTl6c_uMIZjR9UcTCSdEQx80zsBuORLdNHWgwRVXfiBKFlqI6E2hIYSymD-hi4N-SosqrNesBFjMMvc1yPNabVakimxzSGsaa95OekEsl7RHZkZNJjtABvSwuoM2CItaEZMIS50qha_mW0ucAqOF0DtEe1lqVbI"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-slate-950 rounded-full"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-xs font-bold truncate text-on-surface">Alex Nguyen</span>
+<span class="text-[10px] text-slate-500 truncate">Pro Plan Editor</span>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 w-full py-2 bg-error-container/20 text-error rounded-lg hover:bg-error-container/40 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span class="font-button text-xs uppercase tracking-widest">Log out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 flex-1 h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center w-full px-6 h-16 sticky top-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-indigo-500/5">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-white/5 rounded-lg transition-all text-slate-400">
+<span class="material-symbols-outlined" data-icon="menu_open">menu_open</span>
+</button>
+<h1 class="font-h2 text-h3 tracking-tight text-on-surface">Dashboard</h1>
+</div>
+<!-- Toolbar Actions -->
+<div class="flex items-center gap-6">
+<!-- Language Switcher -->
+<div class="flex bg-surface-container rounded-lg p-1 border border-white/5">
+<button class="px-3 py-1 text-[11px] font-bold rounded-md bg-primary text-on-primary">EN</button>
+<button class="px-3 py-1 text-[11px] font-bold rounded-md text-slate-500 hover:text-slate-200 transition-colors">VI</button>
+</div>
+<!-- Theme Toggle & Notifs -->
+<div class="flex items-center gap-2 border-x border-white/10 px-6">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-400 hover:bg-white/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="relative w-10 h-10 flex items-center justify-center rounded-full text-slate-400 hover:bg-white/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full"></span>
+</button>
+</div>
+<!-- Secondary CTA -->
+<button class="bg-primary hover:bg-primary-container text-on-primary font-button px-6 py-2 rounded-lg flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+          New Project
+        </button>
+</div>
+</header>
+<!-- Dashboard Content Canvas -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Stats Overview (Bento Style) -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-8 grid grid-cols-3 gap-6">
+<!-- Stat Card -->
+<div class="p-6 rounded-xl bg-slate-900/40 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="video_call">video_call</span>
+<span class="text-green-400 text-xs font-bold">+12%</span>
+</div>
+<p class="text-slate-400 font-label-caps mb-1">Active Projects</p>
+<h4 class="text-2xl font-h1">24</h4>
+</div>
+<div class="p-6 rounded-xl bg-slate-900/40 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<span class="text-primary text-xs font-bold">1.2k hrs</span>
+</div>
+<p class="text-slate-400 font-label-caps mb-1">Render Time</p>
+<h4 class="text-2xl font-h1">42.5h</h4>
+</div>
+<div class="p-6 rounded-xl bg-slate-900/40 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-all duration-300 group">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="cloud_done">cloud_done</span>
+<span class="text-slate-500 text-xs font-bold">85%</span>
+</div>
+<p class="text-slate-400 font-label-caps mb-1">Storage Used</p>
+<h4 class="text-2xl font-h1">214 GB</h4>
+</div>
+</div>
+<!-- Featured Prompt Card -->
+<div class="col-span-4 relative overflow-hidden rounded-xl bg-gradient-to-br from-indigo-900/40 to-slate-900 border border-indigo-500/30 p-8 group">
+<div class="absolute -right-12 -bottom-12 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[160px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-h3 text-xl mb-2 text-primary-fixed">AI Scene Generation</h3>
+<p class="text-body-sm text-slate-400 mb-6">Create stunning cinematic sequences from simple text prompts using our latest neural engine.</p>
+<button class="bg-white/10 hover:bg-white/20 text-white font-button text-xs uppercase tracking-widest px-4 py-2 rounded-lg border border-white/10 transition-all">Try Magic Mode</button>
+</div>
+</div>
+<!-- Recent Projects Grid -->
+<div>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-h2 text-xl">Recent Projects</h2>
+<button class="text-primary hover:underline text-body-sm font-semibold">View all</button>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<!-- Project Card -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3 border border-white/5">
+<img alt="Project thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Cinematic wide shot of a misty mountain range at sunrise, with deep purples and oranges in the sky. The foreground features a sharp silhouette of a modern glass structure, embodying a high-end cinematic aesthetics with professional color grading and atmospheric lighting, perfect for a high-performance video production portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy4p42FzVQXBAKXQP-IsbQpT1vvdPUnkAxrzrmpxjia4dGX9hWQbF5OkBGBA5z8nS5x46LyCODlwDyyqd4gAXLVCvE7yqusruyeS4VrMayRz4YQAO3T-0RX4YVYSVUPhXkyy2FU82zSLqkfBQTuw5-MNAJ72QHtbRKGeDqTOAIrFmgu8UEmR_Kpzy707otGnjcSrQx9mBnT3-tCESIWZcKTOA2ooclvTEETId3R7lM3jI-2KazoJwsMJ82IXHCTuIyD26cE52-LMo"/>
+<div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-on-primary" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-primary border border-white/10">02:45</div>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Urban Expedition 2024</h4>
+<p class="text-xs text-slate-500">Edited 2 hours ago • 4K Resolution</p>
+</div>
+<!-- Project Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3 border border-white/5">
+<img alt="Project thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A clean, minimalist high-tech workspace featuring a retro-futuristic computer monitor displaying code and 3D graphics. The desk is organized with neon blue and indigo accent lighting, creating a sleek cyber-creative mood. The overall visual style is sharp and modern, emphasizing technical mastery and digital precision in a dark-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFombo7Ijqipqdcn5FmCHxJBLnWKbgi2jjer7cKPRANt7HXvdNnLn8eppFZ2Z_M3IQuhG_x8BvWgxSqlhtVrDuxytvA40VMIH3-66snBQpeihpmFEnefYEkVIl0tk6-IOKdDimnYZf02Oiqh1JZLVEIDNn9dsUKvs8U8H1DO-qgKvf2N4EgaALNAXdQKqd-azEKQZ8dmNYIMIRMmmadoGBY6XTZi8UgYevUklJaH1q5JML9BGRSC9BZUlXN8ihhZTbm7wFIgnuOtw"/>
+<div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-on-primary" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-primary border border-white/10">05:12</div>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Tech Showcase V2</h4>
+<p class="text-xs text-slate-500">Edited yesterday • 1080p Export</p>
+</div>
+<!-- Project Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-3 border border-white/5">
+<img alt="Project thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Vibrant abstract motion graphics featuring fluid, glowing liquid metallic shapes in shades of indigo, magenta, and cyan. The composition is dynamic and cinematic, with soft light bokeh and deep shadows, representing advanced AI video processing and futuristic creative energy in a premium dark-mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhR7qU2e-PnPdKdzg6khLTjO-xdKb3gwy82badVfJnkh_OvIoAmh6etnBU3QeQlFPT8w1gAxQ5YEqCbEVI94r4a1WeFDSc_CbNkbo8mKokwG8wU97j47S9AHROiW0ZzBT90ZhpNlLWhkSPI7dETGBLDYK6PARW4pI-JeaiHAkX2JzfmwB-nShvKnVGC8GZL5BAk6byV6Y5VfSBGI_gARdOjP5qGKIYm8p30fCmDRsEd3oxNl7gPDMHLe8sWCLn2LoLs7ETIRy96KU"/>
+<div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-on-primary" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-primary border border-white/10">01:30</div>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Abstract Intro Final</h4>
+<p class="text-xs text-slate-500">Edited 3 days ago • Social Vertical</p>
+</div>
+<!-- New Project Placeholder -->
+<div class="aspect-video rounded-xl border-2 border-dashed border-white/10 hover:border-primary/40 hover:bg-white/5 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all group">
+<div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-on-primary" data-icon="add">add</span>
+</div>
+<span class="text-slate-500 font-bold group-hover:text-primary transition-colors">Create New</span>
+</div>
+</div>
+</div>
+<!-- Quick Actions / Timeline Hint -->
+<div class="p-8 rounded-2xl bg-surface-container border border-white/5 relative overflow-hidden">
+<div class="flex items-center justify-between relative z-10">
+<div>
+<h3 class="font-h3 text-xl mb-1">Pick up where you left off</h3>
+<p class="text-slate-400 text-body-sm">Your project "Neon Cityscape" is ready for final color grading.</p>
+</div>
+<button class="px-6 py-3 bg-white text-slate-950 font-bold rounded-xl hover:bg-slate-200 active:scale-95 transition-all">Resume Editing</button>
+</div>
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" data-icon="auto_videocam">auto_videocam</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

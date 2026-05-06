@@ -1,0 +1,54 @@
+{
+  "app": {
+    "name": "VideoAutoStudio",
+    "description": "Automated Video Creation Platform"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "driveVideos": "Drive Videos",
+    "templates": "Templates",
+    "scripts": "Scripts",
+    "voiceover": "Voiceover",
+    "projects": "Projects",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginButton": "Login",
+    "registerButton": "Register"
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}!",
+    "stats": {
+      "totalProjects": "Total Projects",
+      "videosImported": "Videos Imported",
+      "scriptsGenerated": "Scripts Generated",
+      "voiceoversCreated": "Voiceovers Created"
+    },
+    "recentProjects": "Recent Projects",
+    "quickActions": "Quick Actions"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!",
+    "confirm": "Are you sure?",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "noData": "No data available"
+  }
+}

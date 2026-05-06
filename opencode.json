@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "git *": "allow",
+      "npm *": "allow",
+      "node *": "allow",
+      "ls *": "allow",
+      "dir *": "allow",
+      "pwd": "allow",
+      "cd *": "allow",
+      "echo *": "allow",
+      "cat *": "allow",
+      "type *": "allow",
+      "kill *": "deny",
+      "taskkill *": "deny",
+      "Stop-Process*": "deny",
+      "pkill *": "deny",
+      "killall *": "deny"
+    },
+    "skill": {
+      "no-kill-processes": "allow"
+    }
+  }
+}

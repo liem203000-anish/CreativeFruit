@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#0d0d15",
+            "surface-tint": "#c0c1ff",
+            "error-container": "#93000a",
+            "background": "#13131b",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e4e1ed",
+            "surface-container-high": "#292932",
+            "inverse-on-surface": "#303038",
+            "surface-container": "#1f1f27",
+            "outline": "#908fa0",
+            "on-error": "#690005",
+            "on-tertiary": "#4f2500",
+            "secondary-fixed": "#d8e3fb",
+            "surface-bright": "#393841",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#07006c",
+            "on-tertiary-fixed-variant": "#703700",
+            "on-background": "#e4e1ed",
+            "tertiary-container": "#d97721",
+            "on-surface-variant": "#c7c4d7",
+            "on-secondary-container": "#aeb9d0",
+            "surface-dim": "#13131b",
+            "on-secondary-fixed": "#111c2d",
+            "tertiary-fixed": "#ffdcc5",
+            "tertiary-fixed-dim": "#ffb783",
+            "primary-fixed-dim": "#c0c1ff",
+            "secondary": "#bcc7de",
+            "on-secondary": "#263143",
+            "primary-container": "#8083ff",
+            "outline-variant": "#464554",
+            "on-primary-container": "#0d0096",
+            "surface-container-highest": "#34343d",
+            "primary-fixed": "#e1e0ff",
+            "on-surface": "#e4e1ed",
+            "tertiary": "#ffb783",
+            "on-tertiary-fixed": "#301400",
+            "surface-container-low": "#1b1b23",
+            "on-secondary-fixed-variant": "#3c475a",
+            "surface": "#13131b",
+            "secondary-fixed-dim": "#bcc7de",
+            "secondary-container": "#3e495d",
+            "surface-variant": "#34343d",
+            "on-primary": "#1000a9",
+            "inverse-primary": "#494bd6",
+            "on-tertiary-container": "#452000",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "primary": "#c0c1ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "md": "1rem",
+            "base": "4px",
+            "gutter": "1.5rem",
+            "sm": "0.5rem",
+            "xs": "0.25rem",
+            "xl": "2.5rem",
+            "margin": "2rem",
+            "lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-caps": ["Inter"],
+            "button": ["Inter"],
+            "h1": ["Manrope"],
+            "body-lg": ["Inter"],
+            "h3": ["Manrope"],
+            "body-sm": ["Inter"],
+            "h2": ["Manrope"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "button": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+            "h1": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+            "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "h2": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .glass-card:hover {
+      border-color: rgba(192, 193, 255, 0.3);
+      box-shadow: 0 0 20px -5px rgba(99, 102, 241, 0.2);
+      transform: translateY(-4px);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<nav class="fixed left-0 top-0 h-full flex flex-col z-40 bg-slate-950/80 backdrop-blur-md border-r border-white/10 w-64">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-lg bg-indigo-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="video_library">video_library</span>
+</div>
+<div>
+<h1 class="text-lg font-bold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">VideoAutoStudio</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Creative Engine</p>
+</div>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:text-slate-200 hover:bg-white/5 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-manrope text-[13px] font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:text-slate-200 hover:bg-white/5 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span class="font-manrope text-[13px] font-medium">Projects</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:text-slate-200 hover:bg-white/5 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="auto_fix_high">auto_fix_high</span>
+<span class="font-manrope text-[13px] font-medium">AI Script</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:text-slate-200 hover:bg-white/5 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+<span class="font-manrope text-[13px] font-medium">Voiceover</span>
+</a>
+<a class="flex items-center gap-3 bg-indigo-600/20 text-indigo-400 border-r-2 border-indigo-500 px-4 py-3 rounded-r-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_queue">cloud_queue</span>
+<span class="font-manrope text-[13px] font-medium">Assets</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-3 hover:text-slate-200 hover:bg-white/5 hover:translate-x-1 transition-all duration-300 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-manrope text-[13px] font-medium">Templates</span>
+</a>
+</div>
+</div>
+<div class="mt-auto px-6 py-8 border-t border-white/5">
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-slate-400 px-4 py-2 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-manrope text-[13px]">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-400 px-4 py-2 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-manrope text-[13px]">Help</span>
+</a>
+</div>
+</div>
+</nav>
+<main class="ml-64 min-h-screen">
+<header class="flex justify-between items-center px-8 py-4 w-full z-50 bg-slate-900/60 backdrop-blur-xl border-b border-white/10 sticky top-0">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-400 transition-colors" data-icon="search">search</span>
+<input class="bg-slate-950/50 border border-white/10 rounded-full py-2 pl-10 pr-4 w-64 focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 outline-none text-sm transition-all" placeholder="Search Google Drive..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 hover:text-slate-50 transition-all rounded-lg">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 hover:text-slate-50 transition-all rounded-lg">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 hover:text-slate-50 transition-all rounded-lg relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full"></span>
+</button>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male video editor in a dimly lit studio environment with soft blue ambient lighting. He has a focused expression, representing technical expertise and creativity. The visual style is high-end, cinematic, and polished to align with a premium SaaS dashboard aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbVM2p-2Yxk00-Vz5zrlqsApDko4Ks8LUCilnp8jfGPHLyhMia0WoCLVu_JF4VppiylV8eWbvDD8soOlqoQpLX5BCWS-gjAmEI9mniEx8EfcLSCy_IRcFdQ4I66U42QWSKhrR_Bbbag2mmr9QQSgvQS_pduJnfcv4jticAZSVyF0AoihXugehFhG7NWegeqpiq7sGzdwh1uwhOC-9KdbPvpP6GL9wZokyd55NdDcXZLnJUxEl6Linhcg2li6KyqxnMIG4zztqTk3M"/>
+</div>
+</div>
+</header>
+<div class="p-8">
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-h1 text-h1 text-on-background mb-2">Cloud Assets</h2>
+<nav class="flex items-center gap-2 text-slate-400 text-sm">
+<span class="flex items-center gap-1 hover:text-indigo-400 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="cloud">cloud</span>
+              Google Drive
+            </span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="flex items-center gap-1 hover:text-indigo-400 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="folder">folder</span>
+              Production_Clips_2024
+            </span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-indigo-400 font-medium">Cinematic_B-Roll</span>
+</nav>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-indigo-600 text-white font-button text-button rounded-lg hover:bg-indigo-700 active:scale-95 transition-all shadow-lg shadow-indigo-500/20">
+<span class="material-symbols-outlined text-lg" data-icon="file_upload">file_upload</span>
+            Import Selected (3)
+          </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 flex items-center justify-between p-4 glass-card rounded-xl mb-2">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container rounded-md border border-white/5">
+<span class="material-symbols-outlined text-sm text-indigo-400" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium uppercase tracking-wider text-slate-300">Connected as drive@videoautostudio.com</span>
+</div>
+<div class="h-6 w-px bg-white/10"></div>
+<div class="flex gap-4">
+<button class="text-xs font-semibold text-slate-400 hover:text-white transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="sort">sort</span> Sort by Date
+              </button>
+<button class="text-xs font-semibold text-slate-400 hover:text-white transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span> Layout
+              </button>
+</div>
+</div>
+<button class="text-xs font-semibold text-error hover:bg-error/10 px-3 py-1.5 rounded-md transition-all">Disconnect Account</button>
+</div>
+<div class="col-span-3">
+<div class="glass-card rounded-xl p-4 h-[calc(100vh-280px)] overflow-y-auto space-y-1">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest px-2 mb-4">Quick Access</h3>
+<div class="p-3 bg-indigo-600/10 text-indigo-400 rounded-lg flex items-center gap-3 cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-medium">Starred Folders</span>
+</div>
+<div class="p-3 text-slate-400 hover:bg-white/5 hover:text-slate-100 rounded-lg flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span class="text-sm font-medium">Recent Files</span>
+</div>
+<div class="p-3 text-slate-400 hover:bg-white/5 hover:text-slate-100 rounded-lg flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">Shared with me</span>
+</div>
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest px-2 mt-8 mb-4">Folders</h3>
+<div class="space-y-1">
+<div class="p-2 text-slate-300 hover:bg-white/5 rounded-lg flex items-center gap-3 cursor-pointer transition-all group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-indigo-400" data-icon="folder">folder</span>
+<span class="text-sm">Raw_Footage</span>
+</div>
+<div class="p-2 text-slate-300 hover:bg-white/5 rounded-lg flex items-center gap-3 cursor-pointer transition-all group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-indigo-400" data-icon="folder">folder</span>
+<span class="text-sm">Audio_Stems</span>
+</div>
+<div class="p-2 bg-white/5 text-indigo-300 rounded-lg flex items-center justify-between gap-3 cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-indigo-400" data-icon="folder_open">folder_open</span>
+<span class="text-sm font-medium">Production_2024</span>
+</div>
+<span class="material-symbols-outlined text-xs" data-icon="expand_more">expand_more</span>
+</div>
+<div class="ml-6 space-y-1 mt-1 border-l border-white/5 pl-2">
+<div class="p-2 text-slate-400 hover:text-slate-100 hover:bg-white/5 rounded-lg flex items-center gap-3 text-xs cursor-pointer">
+<span class="material-symbols-outlined text-base" data-icon="video_library">video_library</span> Clips
+                </div>
+<div class="p-2 text-indigo-400 bg-indigo-500/10 rounded-lg flex items-center gap-3 text-xs cursor-pointer">
+<span class="material-symbols-outlined text-base" data-icon="movie">movie</span> Cinematic_B-Roll
+                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-9 grid grid-cols-3 gap-6 h-[calc(100vh-280px)] overflow-y-auto pr-2">
+<div class="glass-card rounded-xl overflow-hidden group border-2 border-indigo-500/50 ring-4 ring-indigo-500/10 transition-all">
+<div class="aspect-video relative overflow-hidden bg-slate-900">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A wide cinematic landscape shot of misty mountains at dawn, with cool blue tones and a soft ethereal glow. The lighting is low-key and dramatic, suggesting professional high-resolution drone footage. This thumbnail is presented as part of a video asset library in a dark-themed creative software interface, utilizing smooth glassmorphic overlays and indigo highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6V1qZMLcFsk1HutXmv94un6zWMlhSbcB53J5Ce3AdNLDnR131ShqBgtDC-0dZQ5z5wlcDVGsoIBZ3kcR8K-SDdsdb4Txu6Y1TtL2W4ZYY88oDfKZtygvlZtyZjMVQ_4wKHR6o49u-cMWoF0JISg2LWQpQNIJwHrrgPMr3-I3fNjE5VJSKKly1PXi7A49rNiumJvy6dT99NfzwA6i2FWwGCIV2eHaGLA0S7jLkmNDObwpimdDO6IFF7c5wGFU75rjWj6TvCvR71PE"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="absolute top-2 left-2 bg-indigo-600 rounded-md p-1">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check">check</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-tighter">
+                00:12 • 4K
+              </div>
+</div>
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-sm font-semibold text-slate-100 truncate mb-1">Mountain_Mist_01.mp4</h4>
+<p class="text-[11px] text-slate-500">Modified Oct 24, 2023 • 42.5 MB</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group border-2 border-indigo-500/50 ring-4 ring-indigo-500/10 transition-all">
+<div class="aspect-video relative overflow-hidden bg-slate-900">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A close-up shot of a professional camera lens with shallow depth of field, focusing on light reflecting off the glass elements. The scene is set in a modern studio with indigo and magenta accent lights in the background. The visual style is crisp and technically advanced, perfect for representing high-quality video production assets within a dark-mode SaaS environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaW8NQ6ur_wFwbwFXy5io9GwL2Vmo0wSyT1JQrNAKKPJURsij15TXP7uZdYoD5ZLD1O5dzzTVyP5eLSDt_KLqkHs-7KzDURCrOJliE7vAyAP1nxWw6j1R1XJwxl8r7ZN2pJEUV3WkTClbYqM2Keh9IK9o0--THIvsa1iWxBmgTvQryAVnQv5D185WGxUuexc-5TC4d-bzOJl-nTb12hMO0rjB5I1pZlI92WYZ1YmNQ4ex3cbz2XI5JqAI8EmP-A84Wn3TXCwC-jGA"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="absolute top-2 left-2 bg-indigo-600 rounded-md p-1">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check">check</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-tighter">
+                00:45 • 4K
+              </div>
+</div>
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-sm font-semibold text-slate-100 truncate mb-1">Product_Focus_Macro.mp4</h4>
+<p class="text-[11px] text-slate-500">Modified Oct 22, 2023 • 128.1 MB</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group border-2 border-indigo-500/50 ring-4 ring-indigo-500/10 transition-all">
+<div class="aspect-video relative overflow-hidden bg-slate-900">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An abstract cinematic background of glowing particles moving through a dark liquid space, featuring a deep indigo and purple color palette. The lighting is soft and ambient with shimmering highlights that create a sense of mystery and technological sophistication. This visual represents a stock video asset ready for import in a professional video editing dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOiUtguVLPZskSgW_WZrE2_HWowjdlRA--pD5LiEMKs1O18MI9DXBGYhiSEeXPIeEP7p4_IB34h1LDxpmxbC8HeDeSAbBoMvpHMfuMdcNLdSLPVo-61gYlOvwt50PvBRGW4SYv4W_2B2NHyisncOVIg2uCIxdo-gL-hCXpIfcFNAYmn-n_gSxNaG0xmZoXPnKkpLc6IRyn1uKni__wKwqgXAtICe8IdgLgBVW_NA94CT_qVxk9ZMZlfmvD01YaksqWVasypJ2Hjzs"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<div class="absolute top-2 left-2 bg-indigo-600 rounded-md p-1">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check">check</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-tighter">
+                01:15 • 1080p
+              </div>
+</div>
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-sm font-semibold text-slate-100 truncate mb-1">Abstract_Overlay_V12.mp4</h4>
+<p class="text-[11px] text-slate-500">Modified Sep 15, 2023 • 215.3 MB</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group transition-all">
+<div class="aspect-video relative overflow-hidden bg-slate-900">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A moody urban cityscape at night, featuring glowing neon signs and rain-slicked streets reflecting vibrant city lights. The aesthetic is futuristic and cyberpunk-inspired, with a heavy emphasis on dark blues, purples, and neon pinks. The composition is dynamic and cinematic, suitable for a high-energy video sequence in a modern video creation studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8WQATgMPju0rd1O_X3nLXUN1oaP_PAK-v7WsfdbgX3LC-e1JgyRz99s1PHKbxMc45bOIutj-vmnTA4VmFzH-A49JwHWsYUGUt5RHfjAXRL-9GmwYb7MN85lbcpbpYk_gzRMYkDkfpUAUw1KcaD5PHMmRWpvFYrkNiZi2RTo6zcOddvDeRNFMkcRATXfA8diTzoZR9KRM0dzECFNCRj32N9ikEjnp-kZu-yNijtciOFU-fXBLXipJGePYlQ5jNKLv44RKO2YQFvjk"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="play_circle">play_circle</span>
+</div>
+<div class="absolute top-2 left-2 bg-slate-900/60 backdrop-blur-md rounded-md p-1 border border-white/10 group-hover:border-indigo-500 transition-colors">
+<div class="w-4 h-4 rounded border-2 border-white/30"></div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-tighter">
+                00:30 • 4K
+              </div>
+</div>
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-sm font-semibold text-slate-100 truncate mb-1">Urban_Neon_Night.mp4</h4>
+<p class="text-[11px] text-slate-500">Modified Oct 12, 2023 • 98.4 MB</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group transition-all">
+<div class="aspect-video relative overflow-hidden bg-slate-900">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A bright and airy corporate office scene where a diverse group of creatives are collaborating around a large wooden desk filled with technology. The lighting is high-key and natural, creating a professional and positive atmosphere. This high-quality lifestyle stock footage is represented as a thumbnail in a modern asset browser for a video editing platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Eg4vYPOssQMNSSQLjAWCXbtyRuAVtXlqzb9BqCX_ZLlGH0tBQ7AIu-9c3WyGSghlP-EDfUQZ5SJhxlJvtFrqyiTy7n6X1Lqr9VQOxJec2dxk8OsdUyy5XpV6BOwg6a8s-r225d_yrjZNkdKl4tH39cesAsWVi0iu7n5zlrjb_O3QamkctF1J29tO9UtVCmSwfCAGSOluxYA_86Os6TcEeVcI_2y1p16zqjphXrJT4ik4ig6FkVnRA4skM4yVfRxgmavIVp_hkvo"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="play_circle">play_circle</span>
+</div>
+<div class="absolute top-2 left-2 bg-slate-900/60 backdrop-blur-md rounded-md p-1 border border-white/10 group-hover:border-indigo-500 transition-colors">
+<div class="w-4 h-4 rounded border-2 border-white/30"></div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-tighter">
+                00:58 • 4K
+              </div>
+</div>
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-sm font-semibold text-slate-100 truncate mb-1">Office_Collaborate_04.mp4</h4>
+<p class="text-[11px] text-slate-500">Modified Oct 05, 2023 • 154.0 MB</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group transition-all">
+<div class="aspect-video relative overflow-hidden bg-slate-900">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A detailed macro shot of a complex circuit board with glowing orange and blue LEDs highlighting the pathways and microchips. The scene has a dark, industrial tech aesthetic with a shallow depth of field focusing on the intricate details. The lighting creates a high-contrast cinematic feel, suggesting high-end technology or computing content for video projects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBALA1SGmsC8GPO9MwEd1ii3w5-kS0qTt5QXzd4q46_1DCMAxPOCeNuB2yIVUcOThXfTYuTNgzhNqCD0hIa0BLXKExHzUXcPX4FBqsOVzZKI1y-LkC9iRz77nDZ4XtMC5txsFkZR4pc8VJP6jpKWGUDd7woVqImQotZlMJGbS8XKwbbg-OxBpGckgCHRjsqIFdosOKZMwtkkFYQ5vTSNXirYh_5_l4--2eLETTzoPqMsdAu6PSooFI0xvaGVLeTmNg_pA0g5KTmSGo"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="play_circle">play_circle</span>
+</div>
+<div class="absolute top-2 left-2 bg-slate-900/60 backdrop-blur-md rounded-md p-1 border border-white/10 group-hover:border-indigo-500 transition-colors">
+<div class="w-4 h-4 rounded border-2 border-white/30"></div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white uppercase tracking-tighter">
+                00:15 • 4K
+              </div>
+</div>
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-sm font-semibold text-slate-100 truncate mb-1">Tech_Details_Loop.mp4</h4>
+<p class="text-[11px] text-slate-500">Modified Sep 28, 2023 • 82.2 MB</p>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed inset-0 bg-black/60 backdrop-blur-xl z-[60] flex items-center justify-center hidden">
+<div class="max-w-md w-full glass-card rounded-2xl p-10 border border-white/10 text-center shadow-2xl shadow-indigo-500/10">
+<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner border border-slate-200">
+<svg class="w-12 h-12" viewbox="0 0 24 24">
+<path d="M12 2L4.5 20.29h15L12 2z" fill="#4285F4"></path>
+<path d="M12 2l7.5 18.29-15 0L12 2z" fill="#34A853"></path>
+<path d="M12 11.29l-3.75 9L15.75 20.29l-3.75-9z" fill="#FBBC05"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-bold text-white mb-4">Connect Google Drive</h2>
+<p class="text-slate-400 mb-8 font-body-md">Seamlessly import your raw footage, audio, and visual assets directly from Google Drive into your VideoAutoStudio library.</p>
+<button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-indigo-600/20 active:scale-95">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+        Sign in with Google
+      </button>
+<p class="mt-6 text-[11px] text-slate-500 font-medium">By connecting, you agree to our Terms of Service regarding cloud asset handling.</p>
+</div>
+</div>
+</body></html>
