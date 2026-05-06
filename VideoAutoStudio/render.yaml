@@ -33,4 +33,4 @@ services:
       - key: JWT_EXPIRY
         value: "7d"
       - key: FRONTEND_URL
-        value: "https://creative-fruit.vercel.app"
+        value: "https://frontend-seven-liard-95.vercel.app"
