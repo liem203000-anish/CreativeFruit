@@ -9,5 +9,5 @@ id = "cf65e23a-cacb-4ef2-b694-69499dd37772"
 [[environments.production.services]]
 name = "videoautostudio-backend"
 source = "github"
-repo = "thanhliem121004/CreativeFruit"
+repo = "liem203000-anish/CreativeFruit"
 root = "VideoAutoStudio/backend"
