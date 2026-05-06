@@ -2,14 +2,14 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://videoautostudio-backend.up.railway.app/api/$1"
+      "destination": "https://videoautostudio-backend.onrender.com/api/$1"
     }
   ],
   "headers": [
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://creative-fruit.vercel.app" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://frontend-seven-liard-95.vercel.app" },
         { "key": "Access-Control-Allow-Credentials", "value": "true" }
       ]
     }

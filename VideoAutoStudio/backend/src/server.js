@@ -40,17 +40,24 @@ app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', authLimiter);
 app.use('/api', limiter);
 
-// Database pool
-const pool = new Pool({
-    host: process.env.PG_HOST || 'localhost',
-    port: process.env.PG_PORT || 5432,
-    user: process.env.PG_USER || 'videoautostudio_user',
-    password: process.env.PG_PASSWORD || undefined,
-    database: process.env.PG_DATABASE || 'videoautostudio',
+// Database pool - supports both DATABASE_URL and individual PG_* vars
+let poolConfig = {
     max: 20,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 10000,
-});
+};
+
+if (process.env.DATABASE_URL) {
+    poolConfig.connectionString = process.env.DATABASE_URL;
+} else {
+    poolConfig.host = process.env.PG_HOST || 'localhost';
+    poolConfig.port = parseInt(process.env.PG_PORT) || 5432;
+    poolConfig.user = process.env.PG_USER || 'videoautostudio_user';
+    poolConfig.password = process.env.PG_PASSWORD || undefined;
+    poolConfig.database = process.env.PG_DATABASE || 'videoautostudio';
+}
+
+const pool = new Pool(poolConfig);
 
 // Test DB connection
 pool.query('SELECT NOW()', (err, res) => {
