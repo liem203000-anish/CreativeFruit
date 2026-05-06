@@ -1,0 +1,13 @@
+[project]
+name = "videoautostudio"
+id = "29346abe-f870-43c6-8049-e90a363053fd"
+
+[environments.production]
+name = "production"
+id = "cf65e23a-cacb-4ef2-b694-69499dd37772"
+
+[[environments.production.services]]
+name = "videoautostudio-backend"
+source = "github"
+repo = "thanhliem121004/CreativeFruit"
+root = "VideoAutoStudio/backend"
