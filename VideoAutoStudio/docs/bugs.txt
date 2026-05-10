@@ -1,10 +1,198 @@
-metadata.js:1185 test
+metadata.js:1193 test
+chunk-PJEEZAML.js?v=dcc2ca9f:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+sidebar.js:94 [YD-CS-SUBTITLE] sidebar.content 已挂载 {"href":"https://matrimonially-sceptral-sharla.ngrok-free.dev/login","readyState":"complete"}
+login:1 Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.
 injectScript.js:189 [debug-metadata] enter inject script test
-chunk-PJEEZAML.js?v=2bc68fc6:21551 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
-react-router-dom.js?v=2bc68fc6:4436 ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
-warnOnce @ react-router-dom.js?v=2bc68fc6:4436
-react-router-dom.js?v=2bc68fc6:4436 ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
-warnOnce @ react-router-dom.js?v=2bc68fc6:4436
-favicon.ico:1  Failed to load resource: the server responded with a status of 404 (Not Found)
-sidebar.js:94 [YD-CS-SUBTITLE] sidebar.content 已挂载 {"href":"http://localhost:3000/projects","readyState":"complete"}
-projects:1 Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+api/auth/login:1  Failed to load resource: the server responded with a status of 500 ()
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/stats' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
+localhost:4000/stats:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/stats' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
+localhost:4000/stats:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ProjectsPage.jsx:50 Failed to load data: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+    at Axios.request (axios.js?v=dcc2ca9f:2650:41)
+    at async Promise.all (index 0)
+    at async loadAllData (ProjectsPage.jsx:39:67)
+(anonymous) @ ProjectsPage.jsx:50
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ProjectsPage.jsx:50 Failed to load data: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+    at Axios.request (axios.js?v=dcc2ca9f:2650:41)
+    at async Promise.all (index 1)
+    at async loadAllData (ProjectsPage.jsx:39:67)
+(anonymous) @ ProjectsPage.jsx:50
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:35 Failed to load voiceovers: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:35
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:45 Failed to load scripts: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:45
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover/voices' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:54 Failed to load voices: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:54
+localhost:4000/voiceover/voices:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:35 Failed to load voiceovers: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:35
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:45 Failed to load scripts: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:45
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover/voices' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:54 Failed to load voices: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:54
+localhost:4000/voiceover/voices:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ProjectsPage.jsx:50 Failed to load data: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+    at Axios.request (axios.js?v=dcc2ca9f:2650:41)
+    at async Promise.all (index 0)
+    at async loadAllData (ProjectsPage.jsx:39:67)
+(anonymous) @ ProjectsPage.jsx:50
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ Failed to load data: 
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/stats' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/stats:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/stats' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/stats:1  Failed to load resource: net::ERR_FAILED
+matrimonially-sceptral-sharla.ngrok-free.dev/:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ Failed to load data: 
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ProjectsPage.jsx:50 Failed to load data: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+    at Axios.request (axios.js?v=dcc2ca9f:2650:41)
+    at async Promise.all (index 1)
+    at async loadAllData (ProjectsPage.jsx:39:67)
+(anonymous) @ ProjectsPage.jsx:50
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/projects' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/projects:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+projects:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+templates:1 Access to XMLHttpRequest at 'http://localhost:4000/templates' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/templates:1  Failed to load resource: net::ERR_FAILED
+templates:1 Access to XMLHttpRequest at 'http://localhost:4000/templates' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+localhost:4000/templates:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+DriveVideosPage.jsx:72 Failed to load imported videos: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ DriveVideosPage.jsx:72
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/videos' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ Failed to load imported videos: 
+localhost:4000/videos:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ScriptsPage.jsx:32 Failed to load scripts: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ ScriptsPage.jsx:32
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/templates' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ScriptsPage.jsx:42 Failed to load templates: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ ScriptsPage.jsx:42
+localhost:4000/templates:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ScriptsPage.jsx:32 Failed to load scripts: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ ScriptsPage.jsx:32
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+voiceover:1 Access to XMLHttpRequest at 'http://localhost:4000/templates' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+ScriptsPage.jsx:42 Failed to load templates: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ ScriptsPage.jsx:42
+localhost:4000/templates:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:35 Failed to load voiceovers: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:35
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover/voices' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:54 Failed to load voices: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:54
+localhost:4000/voiceover/voices:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:45 Failed to load scripts: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:45
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:35 Failed to load voiceovers: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:35
+localhost:4000/voiceover:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/scripts' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:45 Failed to load scripts: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:45
+localhost:4000/scripts:1  Failed to load resource: net::ERR_FAILED
+scripts:1 Access to XMLHttpRequest at 'http://localhost:4000/voiceover/voices' from origin 'https://matrimonially-sceptral-sharla.ngrok-free.dev' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:3000' that is not equal to the supplied origin.
+VoiceoverPage.jsx:54 Failed to load voices: AxiosError: Network Error
+    at XMLHttpRequest.handleError (axios.js?v=dcc2ca9f:1863:19)
+(anonymous) @ VoiceoverPage.jsx:54
+localhost:4000/voiceover/voices:1  Failed to load resource: net::ERR_FAILED

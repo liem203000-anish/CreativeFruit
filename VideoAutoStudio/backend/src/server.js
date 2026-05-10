@@ -9,6 +9,9 @@ const { Pool } = require('pg');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Trust proxy for rate limiter (needed when behind ngrok/reverse proxy)
+app.set('trust proxy', 1);
+
 // Security headers
 app.use(helmet({
     contentSecurityPolicy: {
@@ -70,7 +73,7 @@ pool.query('SELECT NOW()', (err, res) => {
 
 // Middleware
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: [process.env.FRONTEND_URL || 'http://localhost:3000', 'https://matrimonially-sceptral-sharla.ngrok-free.dev', /\.ngrok-free\.dev$/, /\.ngrok\.app$/],
     credentials: true
 }));
 app.use(express.json());
